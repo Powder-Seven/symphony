@@ -2,7 +2,8 @@ FROM ubuntu:16.04
 MAINTAINER Liang Ding <dl88250@gmail.com>
 
 RUN apt-get update && apt-get install -y wget git
-
+RUN add-apt-repository ppa:webupd8team/java
+RUN apt-get update
 RUN apt-get install oracle-java8-installer -y
 
 RUN wget http://central.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.2.7.v20150116/jetty-distribution-9.2.7.v20150116.tar.gz
