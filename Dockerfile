@@ -31,9 +31,9 @@ RUN tar zxvf jetty-distribution-9.2.7.v20150116.tar.gz && mv /jetty-distribution
 RUN wget http://apache.01link.hk/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
 RUN tar zxvf apache-maven-3.5.0-bin.tar.gz && mv /apache-maven-3.5.0 /maven
 
-RUN git clone https://git.oschina.net/dl88250/symphony /sym
+RUN git clone https://github.com/Powder-Seven/symphony.git /sym
 # 需要修改成真实ip
-RUN cd /sym && sed -i 's/localhost/your ip/g' src/main/resources/latke.properties && sed -i 's/8080/80/g' src/main/resources/latke.properties && /maven/bin/mvn package -Dmaven.test.skip=true
+RUN cd /sym && sed -i 's/localhost/23.83.243.183/g' src/main/resources/latke.properties && sed -i 's/8080/80/g' src/main/resources/latke.properties && /maven/bin/mvn package -Dmaven.test.skip=true
 
 RUN mv /sym/target/symphony.war /jetty/webapps/ROOT.war
 
