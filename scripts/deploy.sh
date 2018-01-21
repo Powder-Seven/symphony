@@ -1,0 +1,1 @@
+bash -c 'cd /sym && /maven/bin/mvn package -Dmaven.test.skip=true && mv /sym/target/symphony.war /jetty/webapps/ROOT.war'
