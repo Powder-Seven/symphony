@@ -1,0 +1,1 @@
+docker run -idt --name symphony -p 8088:8080 symphony
