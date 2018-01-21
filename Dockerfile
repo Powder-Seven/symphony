@@ -22,7 +22,7 @@ RUN tar zxvf apache-maven-3.5.2-bin.tar.gz && mv /apache-maven-3.5.2 /maven
 
 RUN git clone https://github.com/Powder-Seven/symphony.git /sym
 # 需要修改成真实ip
-RUN cd /sym && sed -i 's/localhost/23.83.243.183/g' src/main/resources/latke.properties && sed -i 's/8080/80/g' src/main/resources/latke.properties && /maven/bin/mvn package -Dmaven.test.skip=true
+RUN cd /sym && sed -i 's/localhost/love.meizi1314.com/g' src/main/resources/latke.properties && sed -i 's/8080/80/g' src/main/resources/latke.properties && /maven/bin/mvn package -Dmaven.test.skip=true
 
 RUN mv /sym/target/symphony.war /jetty/webapps/ROOT.war
 
