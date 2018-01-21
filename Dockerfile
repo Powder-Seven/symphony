@@ -2,9 +2,17 @@ FROM ubuntu:16.04
 MAINTAINER Liang Ding <dl88250@gmail.com>
 
 RUN apt-get update && apt-get install -y wget git
-RUN add-apt-repository ppa:webupd8team/java
-RUN apt-get update
-RUN apt-get install oracle-java8-installer -y
+
+RUN wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u161-b12/2f38c3b165be4555a1fa6e98c45e0808/jdk-8u161-linux-x64.tar.gz
+RUN tar zxvf jdk-8u144-linux-x64.tar.gz
+ENV JAVA_HOME /jdk1.8.0_144
+ENV PATH $PATH:$JAVA_HOME/bin
+RUN echo '' >> /etc/profile \
+ && echo '# JDK' >> /etc/profile \
+ && echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile \
+ && echo 'export PATH="$PATH:$JAVA_HOME/bin"' >> /etc/profile \
+ && echo '' >> /etc/profile \
+ && . /etc/profile
 
 RUN wget http://central.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.2.7.v20150116/jetty-distribution-9.2.7.v20150116.tar.gz
 RUN tar zxvf jetty-distribution-9.2.7.v20150116.tar.gz && mv /jetty-distribution-9.2.7.v20150116 /jetty && rm -rf /jetty/webapps/*
