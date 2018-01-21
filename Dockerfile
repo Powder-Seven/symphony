@@ -17,8 +17,8 @@ RUN echo '' >> /etc/profile \
 RUN wget http://central.maven.org/maven2/org/eclipse/jetty/jetty-distribution/9.2.7.v20150116/jetty-distribution-9.2.7.v20150116.tar.gz
 RUN tar zxvf jetty-distribution-9.2.7.v20150116.tar.gz && mv /jetty-distribution-9.2.7.v20150116 /jetty && rm -rf /jetty/webapps/*
 
-RUN wget http://apache.01link.hk/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz
-RUN tar zxvf apache-maven-3.5.0-bin.tar.gz && mv /apache-maven-3.5.0 /maven
+RUN wget http://mirrors.shu.edu.cn/apache/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+RUN tar zxvf apache-maven-3.5.2-bin.tar.gz && mv /apache-maven-3.5.2 /maven
 
 RUN git clone https://github.com/Powder-Seven/symphony.git /sym
 # 需要修改成真实ip
